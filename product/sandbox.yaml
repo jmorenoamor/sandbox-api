@@ -1,0 +1,28 @@
+info:
+  version: 1.0.0
+  title: Sandbox
+  name: sandbox
+  description: Sandbox product to test features and integrations
+gateways:
+  - datapower-api-gateway
+plans:
+  basic:
+    rate-limits:
+      default:
+        value: 100/1hour
+    title: Basic
+    description: Plan predeterminado
+    approval: false
+apis:
+  sandbox-api1.0.0:
+    $ref: .\sandbox-api.yaml
+visibility:
+  view:
+    type: public
+    orgs: []
+    enabled: true
+  subscribe:
+    type: authenticated
+    orgs: []
+    enabled: true
+product: 1.0.0
