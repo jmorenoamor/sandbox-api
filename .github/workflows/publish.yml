@@ -24,3 +24,4 @@ jobs:
         managerUsername: ${{ secrets.API_MANAGER_USERNAME }}
         managerPassword: ${{ secrets.API_MANAGER_PASSWORD }}
         managerRealm: provider/default-idp-2
+        cleanAPIReference: True
