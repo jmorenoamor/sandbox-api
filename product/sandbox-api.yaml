@@ -2,10 +2,14 @@ swagger: '2.0'
 info:
   title: Sandbox API
   x-ibm-name: sandbox-api
-  version: 1.0.0
+  version: "1.0"
   description: Sandbox API to test features and integrations
 x-ibm-configuration:
   cors:
+    enabled: true
+  activity-log:
+    success-content: payload
+    error-content: payload
     enabled: true
   gateway: datapower-api-gateway
   type: rest
@@ -98,11 +102,11 @@ paths:
       consumes: []
       produces: []
 securityDefinitions:
-  clientID:
+  clientIdHeader:
     type: apiKey
     in: header
     name: X-IBM-Client-Id
 security:
-  - clientID: []
+  - clientIdHeader: []
 schemes:
   - https

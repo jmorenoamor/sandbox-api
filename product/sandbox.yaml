@@ -1,18 +1,42 @@
 info:
-  version: 1.0.0
+  version: "1.0"
   title: Sandbox
   name: sandbox
   description: Sandbox product to test features and integrations
 gateways:
   - datapower-api-gateway
 plans:
-  basic:
+  free:
+    title: Free
+    description: Very limited subscription plan for testing (Free)
     rate-limits:
-      default:
+      Default rate-limit:
+        value: 100/1minute
+        hard-limit: false
+    burst-limits:
+      Default burst-limit:
+        value: 10/1second
+  limited:
+    title: Limited
+    description: Managed and limited subscription plan for testing (Limited)
+    rate-limits:
+      Default rate-limit:
+        value: 100/1minute
+        hard-limit: false
+    burst-limits:
+      Default burst-limit:
+        value: 10/1second
+  unlimited:
+    title: Unlimited
+    description: Managed unlimited subscription plan
+    approval: true
+    rate-limits:
+      Default rate-limit:
         value: 100/1hour
-    title: Basic
-    description: Plan predeterminado
-    approval: false
+        hard-limit: false
+    burst-limits:
+      Default burst-limit:
+        value: 10/1second
 apis:
   sandbox-api1.0.0:
     $ref: sandbox-api.yaml
