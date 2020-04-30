@@ -1,4 +1,4 @@
-name: Publish to test
+name: Check and publish
 
 on:
   push:
@@ -19,6 +19,7 @@ jobs:
       uses: jmorenoamor/api-connect-code-quality-action@master
       with:
         product: product/sandbox.yaml
+        rules: quality_rules.yaml
 
     - name: Notify
       uses: 8398a7/action-slack@v3
