@@ -1,0 +1,26 @@
+name: Publish to test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout product
+      uses: actions/checkout@v2
+
+    - name: Publish product
+      uses: jmorenoamor/api-connect-publish-action@master
+      with:
+        productFile: product/sandbox.yaml
+        catalog: sandbox
+        organization: localtest
+        managerHost: ${{ secrets.API_MANAGER_HOST }}
+        managerUsername: ${{ secrets.API_MANAGER_USERNAME }}
+        managerPassword: ${{ secrets.API_MANAGER_PASSWORD }}
+        managerRealm: provider/default-idp-2
